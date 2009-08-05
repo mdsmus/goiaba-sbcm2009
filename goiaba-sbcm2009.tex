@@ -1,37 +1,66 @@
-\documentclass{beamer}
-\usepackage{beamerthemesplit}
-\usepackage{graphicx,url}
+\documentclass{sciposter}
 \usepackage[brazil]{babel}
-\usepackage[utf8]{inputenc}
-\usepackage{multimedia}
+\RequirePackage[utf8,utf8x]{inputenc}
+\usepackage{url}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{subfig}
+\usepackage[dvips,dvipdfm,top=4cm,bottom=-10cm,left=4cm,right=8cm]{geometry}
 
-\mode<presentation>
-{
-  \usetheme{Ilmenau}
-  \setbeamercovered{transparent}
-}
-
+% usar para termos estrangeiros
 \newcommand{\eng}[1]{\textit{#1}}
 \newcommand{\obra}{\textit{Em torno da romã}}
 \newcommand{\goiaba}{\textit{Goiaba}}
-\newcommand{\redmark}[1]{\textcolor{red}{#1}}
-\newcommand{\graymark}[1]{\textcolor{gray}{#1}}
-\newcommand{\tocar}{\textcolor{blue}{$\blacktriangleright$}}
+
+\renewcommand{\papertype}{custom}
+\renewcommand{\fontpointsize}{25pt}
+
+\setlength{\paperwidth}{85cm}
+\setlength{\paperheight}{127cm}
+\renewcommand{\setpspagesize}{
+  \ifthenelse{\equal{\orientation}{portrait}}{
+    \special{papersize=85cm,127cm}
+    }{\special{papersize=127cm,85cm}
+    }
+  }
+
+\definecolor{SectionCol}{rgb}{1,1,1}
+\definecolor{BoxCol}{rgb}{.230,.230,.76}
+
+\def\abovestrut#1{\rule[0in]{0in}{#1}\ignorespaces}
+\def\belowstrut#1{\rule[-#1]{0in}{#1}\ignorespaces}
+
+\def\abovespace{\abovestrut{0.20in}}
+\def\aroundspace{\abovestrut{0.20in}\belowstrut{0.10in}}
+\def\belowspace{\belowstrut{0.10in}}
 
 \title{\goiaba{}: a software to process musical contours}
 \author{Marcos S. Sampaio and Pedro Kröger}
-\date{7 de setembro de 2009}
+\institute{Genos---Grupo de pesquisa em computação
+  musical. Universidade Federal da Bahia}
+\email{\{mdsmus,pedro.kroger\}@gmail.com}
 
-\logo{\includegraphics[scale=.15]{logo-genos}}
+% \leftlogo[.7]{figs/ufba-logo}{  % defines logo to left of title (with scale factor)
+% \rightlogo[1.1]{figs/capes-logo}  % same but on right
 
 \begin{document}
 
-\frame{\titlepage}
+\bibliographystyle{plain}
 
-\section{}
+\conference{\Large \textbf{VIII Congresso da ANPPOM --- 2008
+    \hfill \textsf{Grupo de Pesquisa: GENOS}}}
 
-\frame{
-  \frametitle{}
-}
+\maketitle
+
+\begin{multicols}{3}
+
+\section{Introdução}
+
+\renewcommand{\refname}{Bibliografia}
+
+\bibliography{melodic-contour,music-perception,composition,music-harmony-and-theory,programs,music-analysis,audio,genos,computer-science}
+
+\end{multicols}
 
 \end{document}
